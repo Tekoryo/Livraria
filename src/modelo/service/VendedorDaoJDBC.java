@@ -2,6 +2,7 @@ package modelo.service;
 
 import java.util.List;
 
+import modelo.dao.VendedorDAO;
 import modelo.entities.Vendedor;
 
 public class VendedorDaoJDBC implements VendedorDAO {

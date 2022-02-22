@@ -1,4 +1,4 @@
-package modelo.service;
+package modelo.dao;
 
 import java.util.List;
 

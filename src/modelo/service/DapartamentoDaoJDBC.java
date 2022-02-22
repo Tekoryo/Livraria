@@ -2,6 +2,7 @@ package modelo.service;
 
 import java.util.List;
 
+import modelo.dao.DepartamentoDAO;
 import modelo.entities.Departamento;
 
 public class DapartamentoDaoJDBC implements DepartamentoDAO{
