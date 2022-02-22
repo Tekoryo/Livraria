@@ -1,11 +1,13 @@
-package modelo.service;
+package modelo.implementacao;
 
+import java.sql.Connection;
 import java.util.List;
 
 import modelo.dao.DepartamentoDAO;
 import modelo.entities.Departamento;
 
 public class DapartamentoDaoJDBC implements DepartamentoDAO{
+    
 
     @Override
     public void Incerindo(Departamento obj) {

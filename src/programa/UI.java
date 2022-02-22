@@ -5,8 +5,7 @@ import java.util.Scanner;
 
 public class UI {
     protected static Scanner Sc=new Scanner(System.in);
-    public static void LogicaIndicador(){
-        
+    public static void LogicaIndicador(){   
         System.out.println("==== Bem-Vindo ====");
         int x=0;
         do{
