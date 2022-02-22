@@ -58,5 +58,9 @@ public class Departamento{
     public String toString() {
         return "Departamento: Id:" + Id + ", Nome:" + Nome;
     }
+    public void Update() {
+        // TODO Auto-generated method stub
+        
+    }
     
 }

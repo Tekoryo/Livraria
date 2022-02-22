@@ -1,11 +1,15 @@
 package modelo.service;
 
+import java.util.List;
+
+import modelo.entities.Departamento;
+
 public interface DepartamentoDAO {
 
-    public void Update();
-    public void Delete();
-    public void Incerindo();
-    public void BuscarId();
-    public void BuscarTudo();
+    void Incerindo(Departamento obj);
+    void Update(Departamento obj);
+    void DeleteId(Integer id);
+    Departamento BuscarId(Integer id);
+    List<Departamento> BuscarTudo();
     
 }

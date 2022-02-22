@@ -1,11 +1,15 @@
 package modelo.service;
 
+import java.util.List;
+
+import modelo.entities.Vendedor;
+
 public interface VendedorDAO {
 
-    public void Update();
-    public void Delete();
-    public void Incerindo();
-    public void BuscarId();
-    public void BuscarTudo();
+    void Incerindo(Vendedor obj);
+    void Update(Vendedor obj);
+    void DeleteId(Integer id);
+    Vendedor BuscarId(Integer id);
+    List<Vendedor> BuscarTudo();
         
 }

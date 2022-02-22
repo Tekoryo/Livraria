@@ -1,35 +1,40 @@
 package modelo.service;
 
+import java.util.List;
+
+import modelo.entities.Departamento;
+
 public class DapartamentoDaoJDBC implements DepartamentoDAO{
 
     @Override
-    public void Update() {
+    public void Incerindo(Departamento obj) {
         // TODO Auto-generated method stub
         
     }
 
     @Override
-    public void Delete() {
+    public void Update(Departamento obj) {
         // TODO Auto-generated method stub
         
     }
 
     @Override
-    public void Incerindo() {
+    public void DeleteId(Integer id) {
         // TODO Auto-generated method stub
         
     }
 
     @Override
-    public void BuscarId() {
+    public Departamento BuscarId(Integer id) {
         // TODO Auto-generated method stub
-        
+        return null;
     }
 
     @Override
-    public void BuscarTudo() {
+    public List<Departamento> BuscarTudo() {
         // TODO Auto-generated method stub
-        
+        return null;
     }
+    
     
 }
