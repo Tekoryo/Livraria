@@ -6,17 +6,22 @@ public class Vendedor extends Departamento{
     private String Email;
     private Date bithDate;
     private Double Salario;
+
+    private Departamento departamento;
     
     public Vendedor(){
         super();
     }
-    public Vendedor(int Id,String Nome,String email, Date bithDate, double salario) {
-        super(Id,Nome);
-        this.Email = email;
-        this.bithDate = bithDate;
-        this.Salario = salario;
-    }
     
+    public Vendedor(Integer id, String nome, String email, Date bithDate, Double salario, Departamento departamento) {
+        super(id, nome);
+        Email = email;
+        this.bithDate = bithDate;
+        Salario = salario;
+        this.departamento = departamento;
+    }
+
+
     public String getEmail() {
         return Email;
     }
@@ -34,6 +39,14 @@ public class Vendedor extends Departamento{
     }
     public void setSalario(Double salario) {
         Salario = salario;
+    }
+
+    public Departamento getDepartamento() {
+        return departamento;
+    }
+
+    public void setDepartamento(Departamento departamento) {
+        this.departamento = departamento;
     }
 
     @Override
