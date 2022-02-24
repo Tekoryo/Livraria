@@ -15,6 +15,7 @@ import modelo.entities.Vendedor;
 
 public class VendedorDaoJDBC implements VendedorDAO {
   private ResultSet rs=null;
+  int rowsAffected;
   private static Connection conn;
 
     public VendedorDaoJDBC(Connection conn) {
@@ -36,11 +37,12 @@ public class VendedorDaoJDBC implements VendedorDAO {
       try{
         st=conn.prepareStatement(
           "UPDATE seller "
-          +"SET BaseSalary = BaseSalary + ?"
+          +"SET Name = ?"
           +" WHERE "
           +"(DepartmentId = ?)");
-       st.setDouble(1,obj.getSalario());
+       st.setString(1,obj.getNome());
        st.setInt(2, obj.getDepartamento().getId());
+      rowsAffected= st.executeUpdate();
         
       }
       catch(Exception e){
@@ -109,6 +111,10 @@ public class VendedorDaoJDBC implements VendedorDAO {
       dep.setId(rs.getInt("DepartmentId"));
       dep.setNome(rs.getString("DepName"));
       return dep;
+    }
+    public int Test(){
+      int x=rowsAffected;
+      return x;
     }
 
 }

@@ -25,10 +25,13 @@ public class VendedorMenu {
         //So esta pengando Base Salarial e ID
         
         Vendedor=VendedorDAO.BuscarId(1);
-        
-        System.out.print("Novo Salario:");
-        double Money=Sc.nextDouble();
-        Vendedor.setSalario(Money);
+        //Maria Green
+        System.out.print("Novo Nome:");
+        String Nome=Sc.next();
+        Vendedor.setNome(Nome);
+        //double Money=Sc.nextDouble();
+        //Vendedor.setSalario(Money);
         VendedorDAO.Update(Vendedor);
+        System.out.println("Done! Rows affected: "+ VendedorDAO.Test());
     }
 }

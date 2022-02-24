@@ -16,18 +16,18 @@ public class UI {
         int x=0;
         do{
             System.out.println("==== Menu ====");
-            VendedorMenu.indicador();
             System.out.print("Vendedor ou Departamento [1/0]:");
             x=Sc.nextInt();
-
+            
             System.out.print("Update [1/0]:");
             int y=Sc.nextInt();
-
+            
             if(x==1){
                 int loop=0;
                 do{
                     switch(y){
                         case 1:
+                            VendedorMenu.indicador();
                             loop=0;
                             break;
                         default:
