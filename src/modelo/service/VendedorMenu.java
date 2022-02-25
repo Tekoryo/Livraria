@@ -14,8 +14,8 @@ public class VendedorMenu {
     protected Scanner Sc=new Scanner(System.in);
     protected Vendedor Vendedor=new Vendedor();
     protected VendedorDAO VendedorDAO=DAOFactory.createVendedorDAO();
-    SimpleDateFormat Sdc=new SimpleDateFormat("yyyy/MM/dd-00:00:00");
-    Departamento x=new Departamento();
+    SimpleDateFormat Sdc=new SimpleDateFormat("yyyy/MM/dd");
+    Departamento departamento=new Departamento();
 
     public void indicador(){
         System.out.println("\n=== Vendedor Indicador ===");
@@ -51,7 +51,6 @@ public class VendedorMenu {
         System.out.print("ID a modificado: ");
         int Id=Sc.nextInt();
         
-        //So esta pengando Base Salarial e ID
         System.out.println("Modificar Nome, Email, Data de nascimento, Base salarial, Departamento ou todos[1/2/3/4/5/6]: ");
         int Escolha=Sc.nextInt();
         
@@ -62,12 +61,12 @@ public class VendedorMenu {
                     Vendedor.setNome(Nome);
                 break;
             case 2:
-                    System.out.print("Aumento do Salario:");
+                    System.out.print("Novo Email:");
                     String Email=Sc.next();
                     Vendedor.setEmail(Email);
                 break;
             case 3:
-                    System.out.print("Aumento do Salario:");
+                    System.out.print("Nova data de nacimento:");
                 try {
                     Date DataNascimento = new java.sql.Date(Sdc.parse(Sc.next()).getTime());
                     Vendedor.setBithDate(DataNascimento);
@@ -81,7 +80,7 @@ public class VendedorMenu {
                     Vendedor.setSalario(Money);
                 break;
             case 5:
-                    System.out.print("Aumento do Salario:");
+                    System.out.print("Novo departamento:");
                     int departamentoId=Sc.nextInt();
                     Vendedor.setDepartamento(departamentoId);
                 break;
@@ -89,10 +88,10 @@ public class VendedorMenu {
                     System.out.print("Novo Nome:");
                     Nome=Sc.next();
                         Vendedor.setNome(Nome);
-                    System.out.print("Aumento do Salario:");
+                    System.out.print("Novo Email:");
                     Email=Sc.next();
                         Vendedor.setEmail(Email);
-                    System.out.print("Aumento do Salario:");
+                    System.out.print("Nova data de nacimento:");
                     try {
                         Date DataNascimento = new java.sql.Date(Sdc.parse(Sc.next()).getTime());
                         Vendedor.setBithDate(DataNascimento);
@@ -102,7 +101,7 @@ public class VendedorMenu {
                     System.out.print("Aumento do Salario:");
                     Money=Sc.nextDouble();
                         Vendedor.setSalario(Money);
-                    System.out.print("Aumento do Salario:");
+                    System.out.print("Novo departamento:");
                         departamentoId=Sc.nextInt();
                         Vendedor.setDepartamento(departamentoId);
                 break;
@@ -113,10 +112,32 @@ public class VendedorMenu {
 
         Vendedor=VendedorDAO.BuscarId(Id); 
         VendedorDAO.Update(Vendedor);
-        System.out.println("Done! Rows affected: "+ VendedorDAO.Test());
+        System.out.println("UPDATE Completo!");
     }
 
     public void IncerindoVendedor(){
+        System.out.println("\n=== Vendedor Incerir Dados =====");
+        
+        System.out.print("Email:");
+            String Email=Sc.next();
+        System.out.print("Nome:");
+            String Nome=Sc.next();
+
+
+
+        System.out.println("==== data de nacimento: ====");  
+            System.out.print("Dia:");
+                int DD=Sc.nextInt();
+            System.out.print("Mes:");
+                int MM=Sc.nextInt();
+            System.out.print("Ano:");
+                int YYYY=Sc.nextInt();     
+        System.out.print("Salario Inicial:");
+            double Money=Sc.nextDouble();                
+        
+        Vendedor novoVendedor=new Vendedor(null, Nome, Email, new Date(YYYY/MM/DD), Money, departamento);
+        VendedorDAO.Incerindo(novoVendedor);
+        System.out.println("Incerido! Novo ID = " + novoVendedor.getId());
 
     }
 
