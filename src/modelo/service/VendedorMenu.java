@@ -21,12 +21,37 @@ public class VendedorMenu {
 
     public void indicador(){
         System.out.println("\n=== Vendedor Indicador ===");
-        UpdateVendedor();
+        System.out.print("Update, Incerir [1/2]:");
+        int y=Sc.nextInt();
 
+        int loop=0;
+        do{
+            switch(y){
+                case 1:
+                    UpdateVendedor();
+                    loop=0;
+                    break;
+                case 2:
+                    IncerindoVendedor();
+                    loop=0;
+                    break;
+                default:
+                    //
+                    System.out.println();
+                    System.out.print("Selecione uma opção Update ou Incerir [1/2]:");
+                    y=Sc.nextInt();
+                    loop=1;
+                    break;
+            }
+        }while(loop==1);
+        
     }
-
+    
     public void UpdateVendedor(){
+
         System.out.println("\n=== Vendedor update =====");
+        System.out.print("ID a modificado: ");
+        int Id=Sc.nextInt();
         
         //So esta pengando Base Salarial e ID
         System.out.println("Modificar Nome, Email, Data de nascimento, Base salarial, Departamento ou todos[1/2/3/4/5/6]: ");
@@ -87,12 +112,14 @@ public class VendedorMenu {
                 System.out.print("OPÇÃO INVALIDA!");
                 break;
             }
-            //Maria Green
-        // Muda para id da pessoa e não do departamento
-        System.out.print("ID do departamento a ser modificado: ");
-        int ID=Sc.nextInt();
-        Vendedor=VendedorDAO.BuscarId(ID); 
+
+        Vendedor=VendedorDAO.BuscarId(Id); 
         VendedorDAO.Update(Vendedor);
         System.out.println("Done! Rows affected: "+ VendedorDAO.Test());
     }
+
+    public void IncerindoVendedor(){
+
+    }
+
 }

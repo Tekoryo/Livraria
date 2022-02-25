@@ -37,11 +37,14 @@ public class VendedorDaoJDBC implements VendedorDAO {
       try{
         st=conn.prepareStatement(
           "UPDATE seller "
-          +"SET Name = ?"
-          +" WHERE "
-          +"(DepartmentId = ?)");
+          +"SET Name = ?, Email = ?, BirthDate = ?, BaseSalary = ?, DepartmentId = ?"
+          +" WHERE Id = ? ");
        st.setString(1,obj.getNome());
-       st.setInt(2, obj.getDepartamento().getId());
+       st.setString(2,obj.getEmail());
+       st.setDate(3,obj.getBithDate());
+       st.setDouble(4,obj.getSalario());
+       st.setInt(5,obj.getDepartamento().getId());
+       st.setInt(6, obj.getId());
       rowsAffected= st.executeUpdate();
         
       }
@@ -81,7 +84,7 @@ public class VendedorDaoJDBC implements VendedorDAO {
         return null;
       }
       catch (SQLException e) {
-        throw new DbException(e.getMessage());
+        throw new DbException("[ERRO] "+e.getMessage());
       }
       finally {
         DataBase.closeStatement(st);
