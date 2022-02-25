@@ -1,16 +1,14 @@
 package modelo.service;
 
+import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.sql.Date;
-import java.util.List;
 import java.util.Scanner;
 
 import modelo.dao.DAOFactory;
 import modelo.dao.VendedorDAO;
 import modelo.entities.Departamento;
 import modelo.entities.Vendedor;
-import modelo.implementacao.VendedorDaoJDBC;
 
 public class VendedorMenu {
     protected Scanner Sc=new Scanner(System.in);
