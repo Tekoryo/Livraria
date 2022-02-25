@@ -88,6 +88,9 @@ public class Vendedor extends Departamento{
     public String toString() {
         return "Vendedor [Email=" + Email + ", Salario=" + Salario + ", bithDate=" + bithDate + "]";
     }
+
+    public void setDepartamento(Object setId) {
+    }
     
       
     

@@ -14,8 +14,9 @@ public class Departamento{
     public Integer getId() {
         return Id;
     }
-    public void setId(Integer id) {
+    public void setId(int id) {
         Id = id;
+       
     }
     public String getNome() {
         return Nome;
