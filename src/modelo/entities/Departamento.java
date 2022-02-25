@@ -14,8 +14,9 @@ public class Departamento{
     public Integer getId() {
         return Id;
     }
-    public void setId(Integer id) {
+    public void setId(int id) {
         Id = id;
+       
     }
     public String getNome() {
         return Nome;
@@ -57,6 +58,10 @@ public class Departamento{
     @Override
     public String toString() {
         return "Departamento: Id:" + Id + ", Nome:" + Nome;
+    }
+    public void Update() {
+        // TODO Auto-generated method stub
+        
     }
     
 }
