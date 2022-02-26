@@ -15,7 +15,7 @@ import modelo.entities.Vendedor;
 
 public class VendedorDaoJDBC implements VendedorDAO {
   private ResultSet rs=null;
-  int rowsAffected;
+  
   private static Connection conn;
 
     public VendedorDaoJDBC(Connection conn) {
@@ -45,7 +45,19 @@ public class VendedorDaoJDBC implements VendedorDAO {
        st.setDouble(4,obj.getSalario());
        st.setInt(5,obj.getDepartamento().getId());
        st.setInt(6, obj.getId());
-      rowsAffected= st.executeUpdate();
+
+       int rowsAffected= st.executeUpdate();
+
+       if(rowsAffected>0){
+          rs=st.getGeneratedKeys();
+          if(rs.next()){
+            int id=rs.getInt(1);
+            obj.setId(id);
+          }
+          DataBase.closeResultSet(rs);
+       }else{
+         throw new DbException("Erro inesperado! Nenhuma linha afetada!");
+       }
         
       }
       catch(Exception e){
@@ -115,9 +127,6 @@ public class VendedorDaoJDBC implements VendedorDAO {
       dep.setNome(rs.getString("DepName"));
       return dep;
     }
-    public int Test(){
-      int x=rowsAffected;
-      return x;
-    }
+
 
 }

@@ -141,4 +141,8 @@ public class VendedorMenu {
 
     }
 
+    public void deleteVendadeor(){
+        
+    }
+
 }

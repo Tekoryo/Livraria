@@ -11,6 +11,5 @@ public interface VendedorDAO {
     void DeleteId(Integer id);
     Vendedor BuscarId(Integer id);
     List<Vendedor> BuscarTudo();
-    int Test();
         
 }
