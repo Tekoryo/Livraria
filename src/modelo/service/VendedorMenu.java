@@ -1,6 +1,7 @@
 package modelo.service;
 
 import java.sql.Date;
+import java.sql.PreparedStatement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
@@ -19,7 +20,7 @@ public class VendedorMenu {
 
     public void indicador(){
         System.out.println("\n=== Vendedor Indicador ===");
-        System.out.print("Update, Incerir [1/2]:");
+        System.out.print("Update, Incerir,deletar [1/2/3]:");
         int y=Sc.nextInt();
 
         int loop=0;
@@ -33,10 +34,14 @@ public class VendedorMenu {
                     IncerindoVendedor();
                     loop=0;
                     break;
+                case 3:
+                    deleteVendadeor();
+                    loop=0;
+                    break;
                 default:
                     //
                     System.out.println();
-                    System.out.print("Selecione uma opção Update ou Incerir [1/2]:");
+                    System.out.print("Selecione uma opção Update,Incerir ou deletar [1/2/3]:");
                     y=Sc.nextInt();
                     loop=1;
                     break;
@@ -118,21 +123,21 @@ public class VendedorMenu {
     public void IncerindoVendedor(){
         System.out.println("\n=== Vendedor Incerir Dados =====");
         
-        System.out.print("Email:");
+        System.out.print("Email: ");
             String Email=Sc.next();
-        System.out.print("Nome:");
+        System.out.print("Nome: ");
             String Nome=Sc.next();
 
 
 
         System.out.println("==== data de nacimento: ====");  
-            System.out.print("Dia:");
+            System.out.print("Dia: ");
                 int DD=Sc.nextInt();
-            System.out.print("Mes:");
+            System.out.print("Mes: ");
                 int MM=Sc.nextInt();
-            System.out.print("Ano:");
+            System.out.print("Ano: ");
                 int YYYY=Sc.nextInt();     
-        System.out.print("Salario Inicial:");
+        System.out.print("Salario Inicial: ");
             double Money=Sc.nextDouble();                
         
         Vendedor novoVendedor=new Vendedor(null, Nome, Email, new Date(YYYY/MM/DD), Money, departamento);
@@ -142,7 +147,12 @@ public class VendedorMenu {
     }
 
     public void deleteVendadeor(){
-        
+        System.out.println("==== Menu para o delete ===="); 
+        System.out.print("Id do vendedor que deseja deletar: ");
+        int id =Sc.nextInt();
+        VendedorDAO.BuscarId(id);
+        System.out.println("Delete completed");
+
     }
 
 }
