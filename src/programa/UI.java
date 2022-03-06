@@ -16,7 +16,7 @@ public class UI {
         int x=0;
         do{
             System.out.println("==== Menu ====");
-            System.out.print("Vendedor ou Departamento [1/0]:");
+            System.out.print("1 [1/0]:");
             x=Sc.nextInt();           
             
             if(x==1){

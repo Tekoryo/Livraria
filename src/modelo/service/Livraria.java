@@ -1,9 +1,17 @@
 package modelo.service;
 
+import modelo.dao.DAOFactory;
+import modelo.dao.LivrosDAO;
+import modelo.entities.Livros;
+
 public class Livraria {
 
-    public void indicador() {
+    private LivrosDAO LivrosDAO=DAOFactory.createLivrosDAO();
+    private Livros Livro=new Livros();
 
+    public void indicador() {
+        LivrosDAO.Incerindo();
+        
     }
     public void Incerindo(){
         
