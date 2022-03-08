@@ -40,14 +40,14 @@ public class LivrosDAOJDBC implements LivrosDAO {
         try{
             st=conn.prepareStatement(
                 "INSERT INTO LIVROS(NOMEDOLIVRO,NOMEDOAUTOR,SEXO,NUMERODEPAGINAS,NOMEDAEDITORA,VALORDOLIVRO,UF,ANOPUBLICACAO)VALUES(?,?,?,?,?,?,?,?)",Statement.RETURN_GENERATED_KEYS);   
-            st.setString(1,"Teste2");
-            st.setString(2,"AutoTeste");
-            st.setString(3,"F");
-            st.setInt(4, 490);
-            st.setString(5,"Sefer");
-            st.setFloat(6, (float) 40.98);
-            st.setString(7,"ES");
-            st.setInt(8, 2022);
+            st.setString(1,obj.getNomeDoLivro());
+            st.setString(2,obj.getNomeDoAutor());
+            st.setString(3,obj.getSexo());
+            st.setInt(4, obj.getNumeeoDePaginas());
+            st.setString(5,obj.getNomeDaEditora());
+            st.setDouble(6, obj.getValorDoLivro());
+            st.setString(7,obj.getUF());
+            st.setInt(8, obj.getAnoPublicacao());
 
             int rowsAffected = st.executeUpdate();
 			System.out.println("\n"+rowsAffected);

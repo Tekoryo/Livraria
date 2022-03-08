@@ -1,9 +1,11 @@
 package programa;
 
-import modelo.dao.LivrosDAO;
+import java.util.Locale;
+
 import modelo.database.DataBase;
 
 public class App {
+    static Locale Locale1=new Locale("EN");
     static UI UI=new UI();
     public static void main(String[] args) {
         try{

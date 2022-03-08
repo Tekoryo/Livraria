@@ -16,16 +16,26 @@ public class UI {
         int x=0;
         do{
             System.out.println("==== Menu ====");
-            System.out.print("Incerindo, Verificar a conectição [1/0]:");
+            System.out.print("Verificar a conectição, Incerindo, Verificar a conectição ou Sair [0/1/5]:");
             x=Sc.nextInt();           
-            
-            if(x==1){
-                Livraria.Indicador();              
-                x=4;
-            }else if(x==0){
-                Livraria.TestStatus();                
-                x=4;
+            switch (x) {
+                case 0:
+                Livraria.TestStatus();   
+                x=4;            
+                    break;
+                case 1:
+                Livraria.Incerindo();   
+                x=4;   
+                    break;
+                case 5:
+                System.out.print("Saindo");                   
+                x=4;   
+                    break;
+                default:
+                System.out.print("OPÇÃO INVALIDA!");
+                    break;
             }
+            
         }while(x!=4);
     }
 }
