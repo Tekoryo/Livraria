@@ -16,14 +16,14 @@ public class UI {
         int x=0;
         do{
             System.out.println("==== Menu ====");
-            System.out.print("1 [1/0]:");
+            System.out.print("Incerindo, Verificar a conectição [1/0]:");
             x=Sc.nextInt();           
             
             if(x==1){
-                Livraria.Incerindo();
+                Livraria.Indicador();              
                 x=4;
             }else if(x==0){
-
+                Livraria.TestStatus();                
                 x=4;
             }
         }while(x!=4);

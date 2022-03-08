@@ -1,5 +1,6 @@
 package programa;
 
+import modelo.dao.LivrosDAO;
 import modelo.database.DataBase;
 
 public class App {

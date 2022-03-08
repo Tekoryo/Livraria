@@ -18,37 +18,39 @@ public class LivrosDAOJDBC implements LivrosDAO {
     
     public LivrosDAOJDBC(Connection conn){
         this.conn=conn;
+        
     }
+    public String TestStatus(){
+        String status;
+        if (conn != null) {
 
+            status = "STATUS--->Conectado com sucesso!";
+
+        } else {
+
+            status = "STATUS--->Não foi possivel realizar conexão";
+
+        }
+        return status;
+
+    }
     @Override
-    public void Incerindo() {
-        // TODO Auto-generated method stub
+    public void Incerindo(Livros obj) {
         PreparedStatement st=null;
         try{
             st=conn.prepareStatement(
-                "INSERT INTO LIVROS(NOMEDOLIVRO,NOMEDOAUTOR,SEXO,NUMERODEPAGINAS,NOMEDAEDITORA,VALORDOLIVRO,UF,ANOPUBLICACAO)VALUES(?,?,?,?,?,?,?,?)",Statement.RETURN_GENERATED_KEYS);
-            st.setString(1, "Teste");
-            st.setString(2, "AutoTeste");
-            st.setString(3, "AutoTeste");
-            st.setString(4, "M");
-            st.setInt(5, 490);
-            st.setString(6, "Sefer");
-            st.setFloat(7, (float) 40.98);
+                "INSERT INTO LIVROS(NOMEDOLIVRO,NOMEDOAUTOR,SEXO,NUMERODEPAGINAS,NOMEDAEDITORA,VALORDOLIVRO,UF,ANOPUBLICACAO)VALUES(?,?,?,?,?,?,?,?)",Statement.RETURN_GENERATED_KEYS);   
+            st.setString(1,"Teste2");
+            st.setString(2,"AutoTeste");
+            st.setString(3,"F");
+            st.setInt(4, 490);
+            st.setString(5,"Sefer");
+            st.setFloat(6, (float) 40.98);
+            st.setString(7,"ES");
             st.setInt(8, 2022);
 
             int rowsAffected = st.executeUpdate();
-			
-			if (rowsAffected > 0) {
-				ResultSet rs = st.getGeneratedKeys();
-				if (rs.next()) {
-					int id = rs.getInt(1);
-					
-				}
-				DataBase.closeResultSet(rs);
-			}
-			else {
-				throw new DbException("Unexpected error! No rows affected!");
-			}
+			System.out.println("\n"+rowsAffected);
         }
         catch(SQLException e){
             System.out.print("[ERRO] "+e.getMessage());
