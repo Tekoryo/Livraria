@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import modelo.dao.LivrosDAO;
@@ -14,7 +15,7 @@ import modelo.entities.Livros;
 
 public class LivrosDAOJDBC implements LivrosDAO {
 
-    private Connection conn;
+    private Connection conn=null;
     private PreparedStatement st=null;
     private ResultSet rs = null;
     private String NomeLivro;
@@ -111,8 +112,18 @@ public class LivrosDAOJDBC implements LivrosDAO {
 
     @Override
     public List<Livros> ListLivros(Livros obj) {
-        // TODO Auto-generated method stub
-        return null;
+        try{
+            st=conn.prepareStatement("SELECT * LIVROS");
+            rs=st.executeQuery();
+
+            List<Livros> ListLivros=new ArrayList<>();
+            
+
+            return null;    
+        }
+        catch(SQLException e){
+            throw new DbException(e.getMessage());
+        }
     }
     
     public void find(String NomeDoLivro,String NomeDoAutor) {
