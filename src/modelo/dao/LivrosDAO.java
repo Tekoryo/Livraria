@@ -11,4 +11,6 @@ public interface LivrosDAO {
     public void Update(Livros obj);
     public void Remove(Livros obj);
     public List<Livros> ListLivros(Livros obj);
+    public void find(String NomeDoLivro,String NomeDoAutor);
+
 }

@@ -16,7 +16,7 @@ public class UI {
         int x=0;
         do{
             System.out.println("==== Menu ====");
-            System.out.print("Verificar a conectição, Incerindo, Verificar a conectição ou Sair [0/1/5]:");
+            System.out.print("Verificar a conectição, Incerindo, Verificar a conectição ou Sair [0/1/2/5]: ");
             x=Sc.nextInt();           
             switch (x) {
                 case 0:
@@ -25,6 +25,10 @@ public class UI {
                     break;
                 case 1:
                 Livraria.Incerindo();   
+                x=4;   
+                    break;
+                case 2:
+                Livraria.Update();   
                 x=4;   
                     break;
                 case 5:
