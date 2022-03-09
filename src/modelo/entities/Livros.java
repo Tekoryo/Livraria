@@ -43,10 +43,10 @@ public class Livros {
     public void setSexo(String Sexo) {
         this.Sexo = Sexo;
     }
-    public Integer getNumeeoDePaginas() {
+    public Integer getNumeroDePaginas() {
         return NumeroDePaginas;
     }
-    public void setNumeeoDePaginas(Integer NumeroDePaginas) {
+    public void setNumeroDePaginas(Integer NumeroDePaginas) {
         this.NumeroDePaginas = NumeroDePaginas;
     }
     public String getNomeDaEditora() {
